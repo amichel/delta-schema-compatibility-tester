@@ -1,0 +1,15 @@
+syntax = "proto3";
+package tests;
+
+enum Country {
+  NA = 0;
+  US = 840;
+  CA = 124;
+  MX = 484;
+}
+
+message Address {
+  Country country = 1;
+  string line_1 = 2;
+  int32 postal_code = 3;
+}
