@@ -4,15 +4,15 @@ class DefaultSchemaValidator(val currentSchemaLoader: SchemaLoader, val newSchem
                              val formatter: SchemaValidationResultFormatter = new TreeStringFormatter,
                              val schemaMerger: SchemaMerger = new DeltaSchemaMerger
                             ) extends SchemaValidator {
-  protected var result: SchemaValidationResult = null
+  protected var result: SchemaValidationResult = _
 
-  override def MergeSchemas() = {
+  override def MergeSchemas(): Unit = {
     val currentSchema = currentSchemaLoader.loadAsSparkSchema()
     val newSchema = newSchemaLoader.loadAsSparkSchema()
     result = schemaMerger.MergeSchemas(currentSchema, newSchema)
   }
 
-  override def Result = result
+  override def Result: SchemaValidationResult = result
 
-  override def ResultFormatted() = formatter.formatString(result)
+  override def ResultFormatted(): String = formatter.formatString(result)
 }
