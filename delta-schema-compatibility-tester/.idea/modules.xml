@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/delta-schema-compatibility-tester.iml" filepath="$PROJECT_DIR$/.idea/modules/delta-schema-compatibility-tester.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/delta-schema-compatibility-tester-build.iml" filepath="$PROJECT_DIR$/.idea/modules/delta-schema-compatibility-tester-build.iml" />
-    </modules>
-  </component>
-</project>
