@@ -1,0 +1,23 @@
+syntax = "proto3";
+package Contracts;
+
+enum Country {
+  NA = 0;
+  US = 840;
+  CA = 124;
+  MX = 484;
+}
+
+message Address {
+  Country country = 1;
+  string line_1 = 2;
+  int32 postal_code = 3;
+  string line_2 = 4;
+}
+
+message Person {
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+  Address home_address = 4;
+}

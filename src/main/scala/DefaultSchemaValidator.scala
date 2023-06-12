@@ -12,7 +12,7 @@ class DefaultSchemaValidator(val currentSchemaLoader: SchemaLoader, val newSchem
     result = schemaMerger.MergeSchemas(currentSchema, newSchema)
   }
 
-  override def Result: SchemaValidationResult = result
+  override def Result(): SchemaValidationResult = {result}
 
   override def ResultFormatted(): String = formatter.formatString(result)
 }

@@ -26,7 +26,7 @@ object Main {
       }
 
     val validator: SchemaValidator = config.schemaFormat match {
-      case "proto" => new ProtobufSchemaValidator(config.target, config.source, config.messageType, formatter)
+      case "proto" => new ProtoSchemaValidator(config.target, config.source, config.messageType, formatter)
       case "ddl" => new DDLSchemaValidator(config.source, config.target, formatter)
       case _ => throw new Error(s"Unsupported schema format ${config.schemaFormat}")
     }
@@ -35,14 +35,3 @@ object Main {
     println(validator.ResultFormatted())
   }
 }
-
-/*
-    def main(args: Array[String]): Unit = {
-      val basePath = "D:\\Projects\\opsguru\\talent\\opsguru-sourcecode\\php_producer_poc\\scala\\SchemaValidation\\src\\main\\protobuf"
-      val currentPath = s"$basePath\\descriptors_v2.proto"
-      val newPath = s"$basePath\\descriptors_v3.proto"
-      val validator = new ProtobufSchemaValidator(currentPath, newPath, "Person", new ConsoleTreeStringFormatter())
-      validator.MergeSchemas()
-      if (!validator.Result.Success)
-        println(validator.ResultFormatted())
-    }*/
