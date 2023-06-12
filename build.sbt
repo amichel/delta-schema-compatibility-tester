@@ -21,7 +21,8 @@ libraryDependencies ++= Seq(
   "org.apache.spark" % "spark-sql_2.13" % "3.4.0",
   "io.delta" % "delta-core_2.13" % "2.4.0",
   "org.scalactic" %% "scalactic" % "3.2.15",
-  "org.scalatest" %% "scalatest" % "3.2.15" % "test"
+  "org.scalatest" %% "scalatest" % "3.2.15" % "test",
+  "com.lihaoyi" % "mainargs_2.13" % "0.5.0"
 )
 
 lazy val generateDescriptorsTask = taskKey[Seq[File]]("Generates descriptors using protoc")

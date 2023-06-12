@@ -5,7 +5,8 @@ import org.scalatest.funsuite.AnyFunSuiteLike
 class ProtoSchemaLoaderTest extends AnyFunSuiteLike {
 
   test("testLoadAsSparkSchema") {
-    val descriptorPath = getClass.getResource("/protoc_descriptors/address.descr").getPath
+    //TODO: for some reason loading resources via getClass.getResource() or getClassLoader does not find the descriptor
+    val descriptorPath = s"${System.getProperty("user.dir")}\\target\\scala-2.13\\resource_managed\\test\\protoc_descriptors\\address.descr"
     val target = new ProtoSchemaLoader(descriptorPath, "Address")
     val actual = target.loadAsSparkSchema()
     assert {
