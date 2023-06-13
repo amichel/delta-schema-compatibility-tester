@@ -8,7 +8,7 @@ The utility uses Apache Spark protobuf, Apache Spark SQL, Delta IO (Delta Lake),
 
 To use this utility, you need to have the following prerequisites installed:
 
-- Java 8 or higher
+- Java 17 or higher
 - Scala 2.13 or higher
 
 Once you have installed the prerequisites, follow these steps to use the utility:
