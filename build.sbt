@@ -2,7 +2,7 @@ import java.nio.file.Files
 import scala.collection.JavaConverters.*
 import scala.sys.process.*
 
-ThisBuild / version := "0.1.0-SNAPSHOT"
+ThisBuild / version := "0.1.0"
 
 ThisBuild / scalaVersion := "2.13.11"
 

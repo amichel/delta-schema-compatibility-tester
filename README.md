@@ -23,7 +23,8 @@ git clone https://github.com/amichel/delta-schema-compatibility-tester.git
 
 ```shell
 cd delta-schema-compatibility-tester
-sbt assembly
+sbt compile
+sbt package
 ```
 3. Generate Protobuf Descriptors:
 ```shell
@@ -32,7 +33,7 @@ protoc --java_out=protoc_out mycontract.proto --descriptor_set_out=descriptors/s
 4. Run the utility:
 
 ```shell
-java -jar target/scala-2.13/delta-schema-compatibility-tester-assembly-1.0.jar \
+java -jar target/scala-2.13/delta-schema-compatibility-tester_2.13-0.1.0.jar \
     --schemaFormat <format> \
     --source <source_schema> \
     --target <target_schema> \
