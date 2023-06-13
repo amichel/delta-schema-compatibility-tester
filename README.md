@@ -16,7 +16,7 @@ Once you have installed the prerequisites, follow these steps to use the utility
 1. Clone this repository:
 
 ```shell
-git clone https://github.com/your-username/delta-schema-compatibility-tester.git
+git clone https://github.com/amichel/delta-schema-compatibility-tester.git
 ```
 
 2. Build the project using SBT:
