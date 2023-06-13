@@ -9,7 +9,7 @@ The utility uses Apache Spark protobuf, Apache Spark SQL, Delta IO (Delta Lake),
 To use this utility, you need to have the following prerequisites installed:
 
 - Java 8 or higher
-- Scala 2.12 or higher
+- Scala 2.13 or higher
 
 Once you have installed the prerequisites, follow these steps to use the utility:
 
@@ -32,7 +32,7 @@ protoc --java_out=protoc_out mycontract.proto --descriptor_set_out=descriptors/s
 4. Run the utility:
 
 ```shell
-java -jar target/scala-2.12/delta-schema-compatibility-tester-assembly-1.0.jar \
+java -jar target/scala-2.13/delta-schema-compatibility-tester-assembly-1.0.jar \
     --schemaFormat <format> \
     --source <source_schema> \
     --target <target_schema> \
@@ -45,7 +45,7 @@ Replace `<format>` with the format of the source/target schema validator (e.g., 
 For example:
 
 ```shell
-java -jar target/scala-2.12/delta-schema-compatibility-tester-assembly-1.0.jar \
+java -jar target/scala-2.13/delta-schema-compatibility-tester-assembly-1.0.jar \
     --schemaFormat proto \
     --source /path/to/source_schema.descriptor \
     --target /path/to/target_schema.descriptor \
