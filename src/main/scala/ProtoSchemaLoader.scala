@@ -8,9 +8,10 @@ import org.apache.spark.sql.types.StructType
 import java.io.FileInputStream
 
 
-class ProtoSchemaLoader(val protoFilePath: String, val messageType: String) extends SchemaLoader {
+class ProtoSchemaLoader(val filePath: String, val messageType: String = "") extends SchemaLoader {
   private def loadProtoDescriptor(): FileDescriptor = {
-    val fileContent = new FileInputStream(protoFilePath).readAllBytes()
+    val fileStream = new FileInputStream(filePath)
+    val fileContent = try fileStream.readAllBytes() finally fileStream.close()
 
     val fileDescriptorSet = FileDescriptorSet.parseFrom(fileContent)
     val fileDescriptorProto = fileDescriptorSet.getFile(0)
@@ -21,7 +22,10 @@ class ProtoSchemaLoader(val protoFilePath: String, val messageType: String) exte
   }
 
   def loadAsSparkSchema(): StructType = {
-    val descriptor: Descriptor = loadProtoDescriptor().findMessageTypeByName(messageType)
+    val descriptor: Descriptor = if (messageType.isEmpty)
+      loadProtoDescriptor().getMessageTypes.get(0)
+    else
+      loadProtoDescriptor().findMessageTypeByName(messageType)
 
     SchemaConverter.toSqlType(descriptor).dataType.asInstanceOf[StructType]
   }

@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "country": {
+      "type": "integer",
+      "enum": [
+        0,
+        840,
+        124,
+        484
+      ]
+    },
+    "line_1": {
+      "type": "string"
+    },
+    "postal_code": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "country",
+    "line_1",
+    "postal_code"
+  ]
+}

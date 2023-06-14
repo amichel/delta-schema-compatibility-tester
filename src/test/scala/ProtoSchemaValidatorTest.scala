@@ -8,7 +8,7 @@ class ProtoSchemaValidatorTest extends AnyFunSuiteLike {
 
   test("testProtoValidator") {
     val fileSeparator = FileSystems.getDefault.getSeparator
-    val descriptorBasePath = Paths.get(System.getProperty("user.dir"), "target", "scala-2.13", "resource_managed", "test", "protoc_descriptors") + fileSeparator
+    val basePath = Paths.get(System.getProperty("user.dir"), "target", "scala-2.13", "resource_managed", "test", "protoc_descriptors") + fileSeparator
 
     val testDefinition = Array(
       //TODO: for some reason loading resources via getClass.getResource() or getClassLoader does not find the descriptor
@@ -19,7 +19,7 @@ class ProtoSchemaValidatorTest extends AnyFunSuiteLike {
       ("person_v2_compatible_with_v1.descr", "person_v2.4_incompatible_with_v2.descr", false))
 
     testDefinition.foreach(t => {
-      val target = new ProtoSchemaValidator(descriptorBasePath + t._1, descriptorBasePath + t._2, "Person")
+      val target = new ProtoSchemaValidator(basePath + t._1, basePath + t._2, "Person")
       target.MergeSchemas()
       assert(target.Result().Success == t._3)
     })

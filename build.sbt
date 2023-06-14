@@ -18,8 +18,10 @@ lazy val root = (project in file("."))
 
 libraryDependencies ++= Seq(
   "org.apache.spark" % "spark-protobuf_2.13" % "3.4.0",
+  "org.apache.spark" % "spark-avro_2.13" % "3.4.0",
   "org.apache.spark" % "spark-sql_2.13" % "3.4.0",
   "io.delta" % "delta-core_2.13" % "2.4.0",
+  "com.typesafe.play" % "play-json_2.13" % "2.10.0-RC9",
   "org.scalactic" %% "scalactic" % "3.2.15",
   "org.scalatest" %% "scalatest" % "3.2.15" % "test",
   "com.lihaoyi" % "mainargs_2.13" % "0.5.0"

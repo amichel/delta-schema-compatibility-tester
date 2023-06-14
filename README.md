@@ -37,11 +37,11 @@ java -jar target/scala-2.13/delta-schema-compatibility-tester_2.13-0.1.0.jar \
     --schemaFormat <format> \
     --source <source_schema> \
     --target <target_schema> \
-    --messageType <message_type> \
-    --outType <output_type>
+    --message <message_type> \
+    --out <output_type>
 ```
 
-Replace `<format>` with the format of the source/target schema validator (e.g., `proto`). Replace `<source_schema>` with the path to the source schema file, `<target_schema>` with the path to the target schema file, `<message_type>` with the message/schema type name in the source/target, and `<output_type>` with the output formatter type (`console`, `tree`, or `ddl`).
+Replace `<format>` with the format of the source/target schema validator (e.g., `proto|ddl|json`). Replace `<source_schema>` with the path to the source schema file, `<target_schema>` with the path to the target schema file, `<message_type>` with the message/schema type name in the source/target (optional), and `<output_type>` with the output formatter type (`console`, `tree`, or `ddl`).
 
 For example:
 
@@ -50,10 +50,23 @@ java -jar target/scala-2.13/delta-schema-compatibility-tester-assembly-1.0.jar \
     --schemaFormat proto \
     --source /path/to/source_schema.descriptor \
     --target /path/to/target_schema.descriptor \
-    --messageType MyMessage \
-    --outType console
+    --message MyMessage \
+    --out console
 ```
-
+```shell
+java -jar target/scala-2.13/delta-schema-compatibility-tester-assembly-1.0.jar \
+    --schemaFormat json \
+    --source /path/to/source_schema.json \
+    --target /path/to/target_schema.json \
+    --out tree
+```
+```shell
+java -jar target/scala-2.13/delta-schema-compatibility-tester-assembly-1.0.jar \
+    --schemaFormat ddl \
+    --source "country STRING,line_1 STRING,postal_code INT" \
+    --target "country STRING,line_1 STRING,postal_code STRING" \
+    --out ddl
+```
 Make sure to provide the correct values for each argument.
 
 ## License

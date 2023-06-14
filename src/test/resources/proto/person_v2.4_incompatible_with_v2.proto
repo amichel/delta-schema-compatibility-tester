@@ -19,6 +19,6 @@ message Person {
   int32 id = 1;
   string name = 2;
   string email = 3;
-  bytes Email = 4;
+  bytes Email = 4; //this is not a valid protobuf. standard doesn't allow duplicates, so it is just to test the delta lake merge.
   Address home_address = 5;
 }
