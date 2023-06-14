@@ -1,0 +1,43 @@
+{
+  "type": "record",
+  "name": "Person",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int"
+    },
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "email",
+      "type": "string"
+    },
+    {
+      "name": "home_address",
+      "type": {
+        "type": "record",
+        "name": "Address",
+        "fields": [
+          {
+            "name": "country",
+            "type": {
+              "type": "enum",
+              "name": "Country",
+              "symbols": ["NA", "US", "CA", "MX"]
+            }
+          },
+          {
+            "name": "line_1",
+            "type": "string"
+          },
+          {
+            "name": "postal_code",
+            "type": "int"
+          }
+        ]
+      }
+    }
+  ]
+}

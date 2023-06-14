@@ -41,7 +41,7 @@ java -jar target/scala-2.13/delta-schema-compatibility-tester_2.13-0.1.0.jar \
     --out <output_type>
 ```
 
-Replace `<format>` with the format of the source/target schema validator (e.g., `proto|ddl|json`). Replace `<source_schema>` with the path to the source schema file, `<target_schema>` with the path to the target schema file, `<message_type>` with the message/schema type name in the source/target (optional), and `<output_type>` with the output formatter type (`console`, `tree`, or `ddl`).
+Replace `<format>` with the format of the source/target schema validator (e.g., `proto|ddl|json|avro`). Replace `<source_schema>` with the path to the source schema file, `<target_schema>` with the path to the target schema file, `<message_type>` with the message/schema type name in the source/target (optional), and `<output_type>` with the output formatter type (`console`, `tree`, or `ddl`).
 
 For example:
 
@@ -59,6 +59,12 @@ java -jar target/scala-2.13/delta-schema-compatibility-tester-assembly-1.0.jar \
     --source /path/to/source_schema.json \
     --target /path/to/target_schema.json \
     --out tree
+```
+```shell
+java -jar target/scala-2.13/delta-schema-compatibility-tester-assembly-1.0.jar \
+    --schemaFormat avro \
+    --source /path/to/source_schema.json \
+    --target /path/to/target_schema.json
 ```
 ```shell
 java -jar target/scala-2.13/delta-schema-compatibility-tester-assembly-1.0.jar \
