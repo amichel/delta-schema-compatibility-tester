@@ -1,7 +1,7 @@
 # Delta Schema Compatibility Tester
 
 This repository contains a utility implemented in Scala that validates the compatibility of message contracts as applied to Delta Lake restrictions. 
-Current implementation supports protobuf and DDL schema definitions.
+Protobuf, json, avro and DDL schema definitions are supported.
 The utility uses Apache Spark protobuf, Apache Spark SQL, Delta IO (Delta Lake), and the `lihaoyi` `mainargs` library for command line argument parsing.
 
 ## Installation
